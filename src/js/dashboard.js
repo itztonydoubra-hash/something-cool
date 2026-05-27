@@ -141,9 +141,9 @@ const Dashboard = {
                         <span class="dashboard-card-title">Budget</span>
                         <span class="badge ${budgetStats.balance >= 0 ? 'badge-green' : 'badge-pink'}">${budgetStats.balance >= 0 ? 'On track' : 'Over budget'}</span>
                     </div>
-                    <div class="dashboard-card-value" style="color: ${budgetStats.balance >= 0 ? 'var(--neon-green)' : 'var(--neon-pink)'};">$${Math.abs(budgetStats.balance).toFixed(0)}</div>
+                    <div class="dashboard-card-value" style="color: ${budgetStats.balance >= 0 ? 'var(--neon-green)' : 'var(--neon-pink)'};">₦${Math.abs(budgetStats.balance).toFixed(0)}</div>
                     <div class="dashboard-card-detail">
-                        Spent $${budgetStats.expenses.toFixed(0)} this month
+                        Spent ₦${budgetStats.expenses.toFixed(0)} this month
                     </div>
                 </div>
 
@@ -162,6 +162,18 @@ const Dashboard = {
                         `;
                     })()}
                 </div>
+
+                <!-- Outfits Card -->
+                <div class="dashboard-card" onclick="App.navigate('outfits')">
+                    <div class="dashboard-card-header">
+                        <span class="dashboard-card-title">Outfits</span>
+                        <span class="badge badge-pink">${Outfits.getData().wardrobe.length} items</span>
+                    </div>
+                    <div class="dashboard-card-value">👗 ${Outfits.getData().wardrobe.length > 0 ? 'Pick an outfit' : 'Add clothes'}</div>
+                    <div class="dashboard-card-detail">
+                        ${Outfits.getData().wardrobe.length > 0 ? `${Outfits.getNeglected().length} items need love` : 'Build your digital closet'}
+                    </div>
+                </div>
             </div>
 
             <!-- Quick Actions -->
@@ -176,6 +188,7 @@ const Dashboard = {
                     <button class="btn btn-secondary btn-sm" onclick="App.navigate('budget')">💰 Add Expense</button>
                     <button class="btn btn-secondary btn-sm" onclick="App.navigate('selfcare')">💆‍♀️ Self-Care</button>
                     <button class="btn btn-secondary btn-sm" onclick="App.navigate('affirmations')">🏆 Log a Win</button>
+                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('outfits')">👗 Outfits</button>
                     <button class="btn btn-secondary btn-sm" onclick="App.navigate('aichat')">💬 AI Bestie</button>
                     <button class="btn btn-secondary btn-sm" onclick="App.navigate('insights')">📊 Insights</button>
                 </div>

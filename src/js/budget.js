@@ -95,15 +95,15 @@ const Budget = {
             <!-- Overview Cards -->
             <div class="budget-overview">
                 <div class="budget-stat">
-                    <div class="budget-stat-amount income">$${stats.income.toFixed(2)}</div>
+                    <div class="budget-stat-amount income">₦${stats.income.toFixed(2)}</div>
                     <div class="budget-stat-label">Income This Month</div>
                 </div>
                 <div class="budget-stat">
-                    <div class="budget-stat-amount expense">$${stats.expenses.toFixed(2)}</div>
+                    <div class="budget-stat-amount expense">₦${stats.expenses.toFixed(2)}</div>
                     <div class="budget-stat-label">Spent This Month</div>
                 </div>
                 <div class="budget-stat">
-                    <div class="budget-stat-amount balance" style="color: ${stats.balance >= 0 ? 'var(--neon-green)' : 'var(--danger)'};">$${stats.balance.toFixed(2)}</div>
+                    <div class="budget-stat-amount balance" style="color: ${stats.balance >= 0 ? 'var(--neon-green)' : 'var(--danger)'};">₦${stats.balance.toFixed(2)}</div>
                     <div class="budget-stat-label">Balance</div>
                 </div>
             </div>
@@ -119,7 +119,7 @@ const Budget = {
                         <input type="text" class="input" id="txn-name" placeholder="e.g., Coffee, Paycheck">
                     </div>
                     <div class="input-group">
-                        <label class="input-label">Amount ($)</label>
+                        <label class="input-label">Amount (₦)</label>
                         <input type="number" class="input" id="txn-amount" placeholder="0.00" step="0.01" min="0">
                     </div>
                 </div>
@@ -154,7 +154,7 @@ const Budget = {
                             <div style="flex: 1;">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                                     <span style="font-size: 13px;">${category}</span>
-                                    <span style="font-size: 13px; color: var(--neon-pink);">$${amount.toFixed(2)}</span>
+                                    <span style="font-size: 13px; color: var(--neon-pink);">₦${amount.toFixed(2)}</span>
                                 </div>
                                 <div class="progress-bar" style="height: 6px;">
                                     <div class="progress-fill" style="width: ${(amount / stats.expenses * 100)}%; background: linear-gradient(90deg, var(--neon-pink), var(--purple-primary));"></div>
@@ -178,7 +178,7 @@ const Budget = {
                         <input type="text" class="input" id="buy-item" placeholder="e.g., New headphones">
                     </div>
                     <div class="input-group">
-                        <label class="input-label">How much? ($)</label>
+                        <label class="input-label">How much? (₦)</label>
                         <input type="number" class="input" id="buy-price" placeholder="0.00" step="0.01" min="0">
                     </div>
                 </div>
@@ -215,7 +215,7 @@ const Budget = {
                                     <div class="transaction-name">${t.name}</div>
                                     <div class="transaction-category">${t.category} &middot; ${Storage.formatDate(t.date)}</div>
                                 </div>
-                                <div class="transaction-amount ${t.type}">${t.type === 'income' ? '+' : '-'}$${t.amount.toFixed(2)}</div>
+                                <div class="transaction-amount ${t.type}">${t.type === 'income' ? '+' : '-'}₦${t.amount.toFixed(2)}</div>
                                 <button class="btn btn-ghost btn-sm" onclick="Budget.removeTransaction(${t.id})" style="color: var(--text-muted); font-size: 11px;">&#10005;</button>
                             </div>
                         `).join('')}
@@ -324,12 +324,12 @@ const Budget = {
         }
 
         // Check if affordable
-        if (price <= 10) {
+        if (price <= 5000) {
             score += 10;
-            reasons.push("It's under $10 — life's too short to stress about this.");
-        } else if (price > 200) {
+            reasons.push("It's under ₦5,000 — life's too short to stress about this.");
+        } else if (price > 100000) {
             score -= 5;
-            warnings.push("For purchases over $200, sleeping on it is always wise.");
+            warnings.push("For purchases over ₦100,000, sleeping on it is always wise.");
         }
 
         // If no income tracked, adjust
@@ -360,7 +360,7 @@ const Budget = {
                 <div style="text-align: center; margin-bottom: 16px;">
                     <div style="font-size: 36px; margin-bottom: 8px;">${verdictEmoji}</div>
                     <div style="font-size: 18px; font-weight: 700; color: ${verdictColor};">${verdictTitle}</div>
-                    <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">${item} — $${price.toFixed(2)}</div>
+                    <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">${item} — ₦${price.toFixed(2)}</div>
                 </div>
                 ${reasons.length > 0 ? `
                     <div style="margin-bottom: 12px;">
@@ -377,7 +377,7 @@ const Budget = {
                         <p style="font-size: 12px; color: var(--neon-yellow);">💡 Pro tip: Add it to a wishlist. If you still want it in 48 hours, revisit this decision then.</p>
                     </div>
                 ` : ''}
-                ${score >= 70 && price > 50 ? `
+                ${score >= 70 && price > 2000 ? `
                     <div style="margin-top: 12px; text-align: center;">
                         <button class="btn btn-secondary btn-sm" onclick="Budget.addTransaction('${item.replace(/'/g, "\\'")}', ${price}, 'expense', 'Shopping'); App.navigate('budget');">Log this purchase →</button>
                     </div>

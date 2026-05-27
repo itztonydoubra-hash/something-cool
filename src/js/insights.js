@@ -154,7 +154,7 @@ const Insights = {
                     <div class="stat-label">Skincare Streak</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-value" style="font-size: 22px; color: ${budgetInsights.savings >= 0 ? 'var(--neon-green)' : 'var(--neon-pink)'};">$${Math.abs(budgetInsights.savings).toFixed(0)}</div>
+                    <div class="stat-value" style="font-size: 22px; color: ${budgetInsights.savings >= 0 ? 'var(--neon-green)' : 'var(--neon-pink)'};">₦${Math.abs(budgetInsights.savings).toFixed(0)}</div>
                     <div class="stat-label">${budgetInsights.savings >= 0 ? 'Saved' : 'Over Budget'}</div>
                 </div>
             </div>
@@ -245,15 +245,15 @@ const Insights = {
                 ${budgetInsights.transactionCount > 0 ? `
                     <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
                         <div style="flex: 1; min-width: 100px; text-align: center; padding: 12px; background: var(--bg-input); border-radius: var(--radius-md);">
-                            <div style="font-size: 18px; font-weight: 700; color: var(--neon-green);">$${budgetInsights.income.toFixed(0)}</div>
+                            <div style="font-size: 18px; font-weight: 700; color: var(--neon-green);">₦${budgetInsights.income.toFixed(0)}</div>
                             <div style="font-size: 11px; color: var(--text-muted);">Income</div>
                         </div>
                         <div style="flex: 1; min-width: 100px; text-align: center; padding: 12px; background: var(--bg-input); border-radius: var(--radius-md);">
-                            <div style="font-size: 18px; font-weight: 700; color: var(--neon-pink);">$${budgetInsights.expenses.toFixed(0)}</div>
+                            <div style="font-size: 18px; font-weight: 700; color: var(--neon-pink);">₦${budgetInsights.expenses.toFixed(0)}</div>
                             <div style="font-size: 11px; color: var(--text-muted);">Spent</div>
                         </div>
                         <div style="flex: 1; min-width: 100px; text-align: center; padding: 12px; background: var(--bg-input); border-radius: var(--radius-md);">
-                            <div style="font-size: 18px; font-weight: 700; color: ${budgetInsights.savings >= 0 ? 'var(--neon-green)' : 'var(--neon-pink)'};">$${Math.abs(budgetInsights.savings).toFixed(0)}</div>
+                            <div style="font-size: 18px; font-weight: 700; color: ${budgetInsights.savings >= 0 ? 'var(--neon-green)' : 'var(--neon-pink)'};">₦${Math.abs(budgetInsights.savings).toFixed(0)}</div>
                             <div style="font-size: 11px; color: var(--text-muted);">${budgetInsights.savings >= 0 ? 'Saved' : 'Over'}</div>
                         </div>
                     </div>
@@ -266,7 +266,7 @@ const Insights = {
                                     <div class="progress-bar" style="flex: 1; height: 6px;">
                                         <div class="progress-fill" style="width: ${(amount / budgetInsights.expenses * 100)}%; background: linear-gradient(90deg, var(--neon-pink), var(--purple-primary));"></div>
                                     </div>
-                                    <span style="font-size: 12px; color: var(--neon-pink); min-width: 50px; text-align: right;">$${amount.toFixed(0)}</span>
+                                    <span style="font-size: 12px; color: var(--neon-pink); min-width: 50px; text-align: right;">₦${amount.toFixed(0)}</span>
                                 </div>
                             `).join('')}
                         </div>
