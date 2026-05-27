@@ -75,9 +75,11 @@ const Dashboard = {
             <!-- Self-Care Suggestion -->
             <div class="card glow-pulse" style="margin-bottom: 24px; border-color: rgba(168, 85, 247, 0.3); background: linear-gradient(135deg, var(--bg-card), rgba(168, 85, 247, 0.05));">
                 <div style="display: flex; align-items: start; gap: 12px;">
-                    <span style="font-size: 24px;">&#128156;</span>
+                    <span style="font-size: 24px;">💜</span>
                     <div>
-                        <div style="font-size: 12px; color: var(--purple-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Today's Reminder</div>
+                        <div style="font-size: 12px; color: var(--purple-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Today's Affirmation</div>
+                        <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5; font-style: italic;">"${Affirmations.getTodayAffirmation()}"</p>
+                        <div style="margin-top: 12px; font-size: 12px; color: var(--purple-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Self-Care Tip</div>
                         <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">${suggestion}</p>
                     </div>
                 </div>
@@ -168,10 +170,13 @@ const Dashboard = {
                     <h3 class="card-title">Quick Actions</h3>
                 </div>
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                    <button class="btn btn-secondary btn-sm" onclick="Water.addGlass(); App.navigate('dashboard');">&#128167; + Water</button>
-                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('mood')">&#10024; Log Mood</button>
-                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('cycle')">&#9790; Log Period</button>
-                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('budget')">&#128176; Add Expense</button>
+                    <button class="btn btn-secondary btn-sm" onclick="Water.addGlass(); App.navigate('dashboard');">💧 + Water</button>
+                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('mood')">✨ Log Mood</button>
+                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('cycle')">☽ Log Period</button>
+                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('budget')">💰 Add Expense</button>
+                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('selfcare')">💆‍♀️ Self-Care</button>
+                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('affirmations')">🏆 Log a Win</button>
+                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('aichat')">💬 AI Bestie</button>
                 </div>
             </div>
         `;

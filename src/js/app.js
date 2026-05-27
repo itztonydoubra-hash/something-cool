@@ -59,6 +59,15 @@ const App = {
             case 'budget':
                 html = Budget.render();
                 break;
+            case 'selfcare':
+                html = SelfCare.render();
+                break;
+            case 'affirmations':
+                html = Affirmations.render();
+                break;
+            case 'aichat':
+                html = AIChat.render();
+                break;
             case 'settings':
                 html = this.renderSettings();
                 break;
@@ -68,6 +77,11 @@ const App = {
 
         content.innerHTML = `<div class="fade-in">${html}</div>`;
         window.scrollTo(0, 0);
+
+        // Post-render hooks
+        if (page === 'aichat' && AIChat.messages.length > 0) {
+            AIChat.renderMessages();
+        }
     },
 
     renderSettings() {
