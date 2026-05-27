@@ -76,6 +76,7 @@ const Dashboard = {
             </div>
 
             <!-- Self-Care Suggestion -->
+            ${MorningBriefing.render()}
             <div class="card glow-pulse" style="margin-bottom: 24px; border-color: rgba(168, 85, 247, 0.3); background: linear-gradient(135deg, var(--bg-card), rgba(168, 85, 247, 0.05));">
                 <div style="display: flex; align-items: start; gap: 12px;">
                     <span style="font-size: 24px;">💜</span>

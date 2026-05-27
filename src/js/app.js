@@ -78,6 +78,12 @@ const App = {
             case 'outfits':
                 html = Outfits.render();
                 break;
+            case 'wishlist':
+                html = Wishlist.render();
+                break;
+            case 'streaks':
+                html = Streaks.render();
+                break;
             case 'insights':
                 html = Insights.render();
                 break;

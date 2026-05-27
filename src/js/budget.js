@@ -382,6 +382,11 @@ const Budget = {
                         <button class="btn btn-secondary btn-sm" onclick="Budget.addTransaction('${item.replace(/'/g, "\\'")}', ${price}, 'expense', 'Shopping'); App.navigate('budget');">Log this purchase →</button>
                     </div>
                 ` : ''}
+                ${score < 70 ? `
+                    <div style="margin-top: 12px; text-align: center;">
+                        <button class="btn btn-secondary btn-sm" onclick="Wishlist.addItem('${item.replace(/'/g, "\\'")}', ${price}, '${reason}'); showToast('Added to wishlist! 🛍️');">Add to Wishlist instead →</button>
+                    </div>
+                ` : ''}
             </div>
         `;
     }
