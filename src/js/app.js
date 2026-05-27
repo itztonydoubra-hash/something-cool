@@ -75,6 +75,9 @@ const App = {
             case 'aichat':
                 html = AIChat.render();
                 break;
+            case 'outfits':
+                html = Outfits.render();
+                break;
             case 'insights':
                 html = Insights.render();
                 break;

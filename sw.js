@@ -1,5 +1,5 @@
 // Luna Service Worker - Enables offline support & installability
-const CACHE_NAME = 'luna-v3';
+const CACHE_NAME = 'luna-v4';
 const ASSETS = [
     '/',
     '/index.html',
@@ -16,6 +16,7 @@ const ASSETS = [
     '/src/js/affirmations.js',
     '/src/js/aichat.js',
     '/src/js/insights.js',
+    '/src/js/outfits.js',
     '/src/js/onboarding.js',
     '/src/js/dashboard.js',
     '/src/js/app.js',
