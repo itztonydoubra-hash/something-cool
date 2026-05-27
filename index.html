@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna - Your Life, Illuminated</title>
+    <meta name="description" content="Luna - All-in-one life dashboard. Track your cycle, mood, skincare, hydration, and finances in one beautiful space.">
+    <meta name="theme-color" content="#0a0a0f">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/components.css">
+    <link rel="stylesheet" href="src/css/pages.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Sidebar Navigation -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">&#127769;</span>
+                    <span class="logo-text">Luna</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item active" data-page="dashboard">
+                    <span class="nav-icon">&#9670;</span>
+                    <span class="nav-label">Dashboard</span>
+                </li>
+                <li class="nav-item" data-page="cycle">
+                    <span class="nav-icon">&#9790;</span>
+                    <span class="nav-label">Cycle</span>
+                </li>
+                <li class="nav-item" data-page="mood">
+                    <span class="nav-icon">&#10024;</span>
+                    <span class="nav-label">Mood</span>
+                </li>
+                <li class="nav-item" data-page="water">
+                    <span class="nav-icon">&#128167;</span>
+                    <span class="nav-label">Hydration</span>
+                </li>
+                <li class="nav-item" data-page="skincare">
+                    <span class="nav-icon">&#10025;</span>
+                    <span class="nav-label">Skincare</span>
+                </li>
+                <li class="nav-item" data-page="budget">
+                    <span class="nav-icon">&#9733;</span>
+                    <span class="nav-label">Budget</span>
+                </li>
+                <li class="nav-item" data-page="settings">
+                    <span class="nav-icon">&#9881;</span>
+                    <span class="nav-label">Settings</span>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <p class="version">Luna v1.0</p>
+            </div>
+        </nav>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav id="mobile-nav" class="mobile-nav">
+            <div class="mobile-nav-item active" data-page="dashboard">
+                <span class="mobile-nav-icon">&#9670;</span>
+                <span class="mobile-nav-label">Home</span>
+            </div>
+            <div class="mobile-nav-item" data-page="cycle">
+                <span class="mobile-nav-icon">&#9790;</span>
+                <span class="mobile-nav-label">Cycle</span>
+            </div>
+            <div class="mobile-nav-item" data-page="mood">
+                <span class="mobile-nav-icon">&#10024;</span>
+                <span class="mobile-nav-label">Mood</span>
+            </div>
+            <div class="mobile-nav-item" data-page="water">
+                <span class="mobile-nav-icon">&#128167;</span>
+                <span class="mobile-nav-label">Water</span>
+            </div>
+            <div class="mobile-nav-item" data-page="skincare">
+                <span class="mobile-nav-icon">&#10025;</span>
+                <span class="mobile-nav-label">Skin</span>
+            </div>
+            <div class="mobile-nav-item" data-page="budget">
+                <span class="mobile-nav-icon">&#9733;</span>
+                <span class="mobile-nav-label">Budget</span>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="main-content">
+            <!-- Pages will be injected here -->
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="src/js/storage.js"></script>
+    <script src="src/js/cycle.js"></script>
+    <script src="src/js/mood.js"></script>
+    <script src="src/js/water.js"></script>
+    <script src="src/js/skincare.js"></script>
+    <script src="src/js/budget.js"></script>
+    <script src="src/js/dashboard.js"></script>
+    <script src="src/js/app.js"></script>
+</body>
+</html>
