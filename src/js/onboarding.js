@@ -162,7 +162,7 @@ const Onboarding = {
                     ${this.currentStep > 0 && (!step.options || step.multiSelect) ? `
                         <button class="btn btn-ghost" onclick="Onboarding.prev()">← Back</button>
                     ` : '<div></div>'}
-                    ${(!step.options || step.multiSelect || step.final || step.input || step.inputs) ? `
+                    ${step.multiSelect || !step.options ? `
                         <button class="btn btn-primary" onclick="Onboarding.next()">
                             ${step.final ? 'Let\'s Go! ✨' : 'Continue →'}
                         </button>
