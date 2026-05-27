@@ -177,6 +177,7 @@ const Dashboard = {
                     <button class="btn btn-secondary btn-sm" onclick="App.navigate('selfcare')">💆‍♀️ Self-Care</button>
                     <button class="btn btn-secondary btn-sm" onclick="App.navigate('affirmations')">🏆 Log a Win</button>
                     <button class="btn btn-secondary btn-sm" onclick="App.navigate('aichat')">💬 AI Bestie</button>
+                    <button class="btn btn-secondary btn-sm" onclick="App.navigate('insights')">📊 Insights</button>
                 </div>
             </div>
         `;

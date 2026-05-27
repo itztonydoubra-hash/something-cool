@@ -3,7 +3,14 @@ const App = {
     currentPage: 'dashboard',
 
     init() {
-        this.navigate('dashboard');
+        // Check if first-time user
+        if (Onboarding.isFirstTime()) {
+            document.getElementById('sidebar').style.display = 'none';
+            document.getElementById('mobile-nav').style.display = 'none';
+            Onboarding.start();
+        } else {
+            this.navigate('dashboard');
+        }
         this.setupNavigation();
         this.registerServiceWorker();
     },
@@ -67,6 +74,9 @@ const App = {
                 break;
             case 'aichat':
                 html = AIChat.render();
+                break;
+            case 'insights':
+                html = Insights.render();
                 break;
             case 'settings':
                 html = this.renderSettings();

@@ -285,3 +285,217 @@ body {
 .glow-pulse {
     animation: pulse-glow 3s ease-in-out infinite;
 }
+
+
+/* Enhanced Animations & Polish */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.02); opacity: 1; }
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+.slide-down {
+    animation: slideDown 0.4s ease-out forwards;
+}
+
+.scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+}
+
+.bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Staggered children animation */
+.stagger-in > * {
+    opacity: 0;
+    animation: slideUp 0.4s ease-out forwards;
+}
+
+.stagger-in > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-in > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-in > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-in > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-in > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-in > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-in > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-in > *:nth-child(8) { animation-delay: 0.4s; }
+
+/* Hover micro-interactions */
+.dashboard-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-card:active {
+    transform: scale(0.97);
+}
+
+.btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Water button ripple effect */
+.water-btn:active {
+    transform: scale(0.9);
+}
+
+/* Mood option bounce */
+.mood-option {
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Checkbox animation */
+.checkbox {
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.checkbox.checked {
+    animation: bounceIn 0.3s ease forwards;
+}
+
+/* Card entrance animations */
+.dashboard-grid {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.dashboard-grid .dashboard-card {
+    opacity: 0;
+    animation: slideUp 0.4s ease-out forwards;
+}
+
+.dashboard-grid .dashboard-card:nth-child(1) { animation-delay: 0.05s; }
+.dashboard-grid .dashboard-card:nth-child(2) { animation-delay: 0.1s; }
+.dashboard-grid .dashboard-card:nth-child(3) { animation-delay: 0.15s; }
+.dashboard-grid .dashboard-card:nth-child(4) { animation-delay: 0.2s; }
+.dashboard-grid .dashboard-card:nth-child(5) { animation-delay: 0.25s; }
+.dashboard-grid .dashboard-card:nth-child(6) { animation-delay: 0.3s; }
+
+/* Nav item transitions */
+.nav-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: var(--purple-primary);
+    border-radius: 2px;
+    transition: height 0.3s ease;
+}
+
+.nav-item.active::before {
+    height: 60%;
+}
+
+/* Mobile nav active indicator */
+.mobile-nav-item {
+    position: relative;
+}
+
+.mobile-nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--purple-primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.mobile-nav-item.active::after {
+    width: 20px;
+}
+
+/* Progress bar animation */
+.progress-fill {
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassmorphism for special cards */
+.glass {
+    background: rgba(26, 26, 46, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+/* Loading shimmer */
+.shimmer {
+    background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Focus ring */
+.input:focus, .btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
+}
+
+/* Smooth page transitions */
+.fade-in {
+    animation: fadeIn 0.35s ease-out forwards;
+}
+
+/* Tooltip-style badges */
+.badge {
+    transition: all 0.2s ease;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+}
