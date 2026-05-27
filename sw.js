@@ -1,51 +1,36 @@
-// Luna Service Worker - Enables offline support & installability
-const CACHE_NAME = 'luna-v4';
-const ASSETS = [
-    '/',
-    '/index.html',
-    '/src/css/style.css',
-    '/src/css/components.css',
-    '/src/css/pages.css',
-    '/src/js/storage.js',
-    '/src/js/cycle.js',
-    '/src/js/mood.js',
-    '/src/js/water.js',
-    '/src/js/skincare.js',
-    '/src/js/budget.js',
-    '/src/js/selfcare.js',
-    '/src/js/affirmations.js',
-    '/src/js/aichat.js',
-    '/src/js/insights.js',
-    '/src/js/outfits.js',
-    '/src/js/onboarding.js',
-    '/src/js/dashboard.js',
-    '/src/js/app.js',
-    '/manifest.json'
-];
+// Luna Service Worker v5 - Network-first for fresh updates
+const CACHE_NAME = 'luna-v5';
 
-// Install - cache all assets
+// Install - skip waiting immediately
 self.addEventListener('install', event => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(ASSETS))
-            .then(() => self.skipWaiting())
-    );
+    self.skipWaiting();
 });
 
-// Activate - clean old caches
+// Activate - clear ALL old caches immediately
 self.addEventListener('activate', event => {
     event.waitUntil(
         caches.keys().then(keys => 
-            Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key)))
+            Promise.all(keys.map(key => caches.delete(key)))
         ).then(() => self.clients.claim())
     );
 });
 
-// Fetch - serve from cache, fallback to network
+// Fetch - NETWORK FIRST (always get fresh files, fall back to cache)
 self.addEventListener('fetch', event => {
     event.respondWith(
-        caches.match(event.request)
-            .then(response => response || fetch(event.request))
-            .catch(() => caches.match('/index.html'))
+        fetch(event.request)
+            .then(response => {
+                // Cache the fresh response for offline use
+                const clone = response.clone();
+                caches.open(CACHE_NAME).then(cache => {
+                    cache.put(event.request, clone);
+                });
+                return response;
+            })
+            .catch(() => {
+                // Only use cache if network fails (offline)
+                return caches.match(event.request)
+                    .then(response => response || caches.match('/index.html'));
+            })
     );
 });
