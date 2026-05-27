@@ -2,9 +2,12 @@
 const Dashboard = {
     getGreeting() {
         const hour = new Date().getHours();
-        if (hour < 12) return 'Good morning';
-        if (hour < 17) return 'Good afternoon';
-        return 'Good evening';
+        const name = Storage.get('userName');
+        let greeting;
+        if (hour < 12) greeting = 'Good morning';
+        else if (hour < 17) greeting = 'Good afternoon';
+        else greeting = 'Good evening';
+        return name ? `${greeting}, ${name}` : greeting;
     },
 
     getSelfCareSuggestion() {

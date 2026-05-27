@@ -81,6 +81,9 @@ const App = {
             case 'insights':
                 html = Insights.render();
                 break;
+            case 'profile':
+                html = Profile.render();
+                break;
             case 'settings':
                 html = this.renderSettings();
                 break;

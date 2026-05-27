@@ -159,13 +159,16 @@ body {
     left: 0;
     right: 0;
     height: 70px;
-    background: var(--bg-secondary);
+    background: rgba(18, 18, 26, 0.95);
     border-top: 1px solid var(--border);
     justify-content: space-around;
     align-items: center;
     padding: 8px 0;
     z-index: 100;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .mobile-nav-item {
@@ -204,6 +207,8 @@ body {
     padding: 32px;
     min-height: 100vh;
     width: calc(100% - 240px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Page Header */
@@ -241,6 +246,18 @@ body {
         width: 100%;
         padding: 20px 16px;
         padding-bottom: 90px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        height: calc(100vh - 70px);
+    }
+    
+    body {
+        overflow: hidden;
+    }
+    
+    #app {
+        height: 100vh;
+        overflow: hidden;
     }
 }
 
